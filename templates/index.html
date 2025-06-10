@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Call App</title>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+  <h1>Text Call</h1>
+  {% if user %}
+    <p>Hello, {{ user.name }} | <a href="/logout">Logout</a></p>
+    <a href="/history">View History</a>
+    <form method="post" action="/call">
+      <input type="text" name="to" placeholder="+1234567890" required />
+      <textarea name="message" required></textarea>
+      <div class="g-recaptcha" data-sitekey="6Le7M1srAAAAAL22-NdNRU_kBKSzKiTVCYo2k6Ok"></div>
+      <button type="submit">Send Call</button>
+    </form>
+  {% else %}
+    <p><a href="/login">Login with Google</a></p>
+  {% endif %}
+</body>
+</html>
