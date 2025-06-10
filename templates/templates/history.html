@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Call History</title>
+</head>
+<body>
+  <h2>Call History</h2>
+  <a href="/">← Back</a>
+  <ul>
+    {% for log in logs %}
+      <li><strong>{{ log.to_number }}</strong> - {{ log.message }} at {{ log.timestamp }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
